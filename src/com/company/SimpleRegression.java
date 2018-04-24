@@ -54,7 +54,7 @@ public class SimpleRegression {
             }
 
             try {
-                y = nf.parse(values[0]).doubleValue();
+                y = nf.parse(values[1]).doubleValue();
             }
             catch(Error e){
                 System.err.println("Error processing y:" + e);
@@ -62,6 +62,7 @@ public class SimpleRegression {
 
             //add to the input array
             double[] coordinates = {x, y};
+            System.out.println(Double.toString(coordinates[0]) + "  " + Double.toString(coordinates[1]));
             input.add(coordinates);
         }
 

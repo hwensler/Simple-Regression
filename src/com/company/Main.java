@@ -26,6 +26,11 @@ public class Main {
             System.err.println("File not parsed: " + e.getMessage());
         }
 
-        System.out.println(data);
+        //save first item for testing
+        double[] testPoint = data.get(0);
+        System.out.println("Test Point: " + Double.toString(testPoint[0]) + " " + Double.toString(testPoint[1]));
+
+        //remove first item from training dataset
+        double[] trainingData = data.remove(0);
     }
 }
