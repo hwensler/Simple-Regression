@@ -36,7 +36,7 @@ public class SimpleRegression {
 
             //split line at the spaces
             String values[] = line.split("\\s+");
-            
+
             //eliminate any white space
             values[0].replaceAll("\\s+","");
             values[1].replaceAll("\\s+","");
