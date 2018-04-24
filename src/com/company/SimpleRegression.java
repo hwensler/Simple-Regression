@@ -69,6 +69,50 @@ public class SimpleRegression {
         return input;
     }
 
+    public static Array[] getErrors(ArrayList<double[]> data){
+        Array[] errors = new Array[data.size()];
+
+        //for every item in the data
+        for(int i = 0; i < data.size(); i++){
+
+            //save the current item as the training point
+            double[] testPoint = data.get(i);
+            System.out.println("Test Point" + " " + i + ": " + Double.toString(testPoint[0]) + " " + Double.toString(testPoint[1]));
+
+            //remove the current item from the training dataset
+            ArrayList<double[]> trainingData = data;
+            trainingData.remove(i);
+
+            double sumX = 0;
+            double sumX2 = 0;
+            double sumY = 0;
+            double sumXTimesY = 0;
+
+            //get sum x and y
+            for (int j=0; j < trainingData.size(); j++){
+                sumX += trainingData.get(j)[0];
+                sumX2 += Math.pow(trainingData.get(j)[0], 2);
+                sumY += trainingData.get(j)[1];
+                sumXTimesY += trainingData.get(j)[0] * trainingData.get(j)[1];
+            }
+
+            //calculate slope beta
+            double beta = (trainingData.size() - (sumX * sumY))/(trainingData.size()*sumX2 - Math.pow(sumX, 2));
+
+            //calculate intercept alpha
+            double alpha = (sumY - beta * sumX)/trainingData.size();
+
+            //calculate error
+            double ytest = beta*testPoint[0] + alpha;
+            double error = Math.sqrt(Math.pow(testPoint[1] + ytest,2));
+
+            //add it to the list
+            System.out.println("Error " + i + ": " + error);
+        }
+
+        return errors;
+    }
+
 
 
 }
