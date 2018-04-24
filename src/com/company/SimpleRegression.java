@@ -41,7 +41,7 @@ public class SimpleRegression {
 
         return input;
     }
-    
+
 
 
 }
