@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         //TODO: hardcode file location here
-        String fileLocation = "C:\\Users\\Heather\\Documents\\Repositories\\Simple-Regression\\data\\auto insurance in sweden.txt";
+        String fileLocation = "C:\\Users\\Heather\\Documents\\Repositories\\Simple-Regression\\data\\fire and theft in chicago.txt";
 
         //data from filelocation
         ArrayList<double[]> data = null;
@@ -28,7 +28,7 @@ public class Main {
 
 
         //perform regression, get errors
-
+        SimpleRegression.getErrors(data);
 
 
     }

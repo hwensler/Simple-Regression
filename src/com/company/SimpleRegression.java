@@ -77,7 +77,7 @@ public class SimpleRegression {
 
             //save the current item as the training point
             double[] testPoint = data.get(i);
-            System.out.println("Test Point" + " " + i + ": " + Double.toString(testPoint[0]) + " " + Double.toString(testPoint[1]));
+            //System.out.println("Test Point" + " " + i + ": " + Double.toString(testPoint[0]) + " " + Double.toString(testPoint[1]));
 
             //remove the current item from the training dataset
             ArrayList<double[]> trainingData = data;
@@ -102,14 +102,16 @@ public class SimpleRegression {
             //calculate intercept alpha
             double alpha = (sumY - beta * sumX)/trainingData.size();
 
+            //System.out.println("*******" + alpha + "    " + beta);
+
             //calculate error
-            double ytest = beta*testPoint[0] + alpha;
-            double error = Math.sqrt(Math.pow(testPoint[1] + ytest,2));
+            double yTest = beta*testPoint[0] + alpha;
+            double yActual = testPoint[1];
+            double error = Math.sqrt(Math.pow((yTest + yActual), 2));
 
             //add it to the list
             System.out.println("Error " + i + ": " + error);
         }
-
         return errors;
     }
 
